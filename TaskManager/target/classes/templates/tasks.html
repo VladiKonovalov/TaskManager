@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Tasks Manager System</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		  crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Task Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/tasks}">High priority</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/tasks}">Medium priority</a>
+      </li>
+		<li class="nav-item">
+			<a class="nav-link" th:href="@{/tasks}">Low priority</a>
+		</li>
+    </ul>
+  </div>
+</nav>
+
+	<div class ="container">
+		<div class = "row">
+			<h1> List of all open processes </h1><br><hr>
+
+
+		</div>
+		<div class = "row">
+			<p>Max Number of Open processes [[${maxOpenProcess}]]</p><br>
+		</div>
+		<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/tasks/new}" class = "btn btn-primary btn-sm mb-3"> Add Process</a>
+			</div>
+			<div class = "col-lg-3">
+				<a th:href = "@{/tasks/deleteAll}" class = "btn btn-primary btn-sm mb-3"> Kill All</a>
+			</div>
+		</div>
+		<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+		<table class = "table table-striped table-bordered sortable" data-mdb-sort="true">
+			<thead class = "table-dark">
+				<tr>
+					<th> PId </th>
+					<th> Process name </th>
+					<th> Priority</th>
+					<th> Created at </th>
+					<th> Actions </th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "task: ${tasks}">
+					<td th:text = "${task.id}"></td>
+					<td th:text = "${task.name}"></td>
+					<td th:text = "${task.priority}"></td>
+					<td th:text = "${task.date}"></td>
+					<td>
+						<a th:href = "@{/tasks/{id}(id=${task.id})}"
+						 class = "btn btn-danger" >Kill this process</a>
+						<a th:href = "@{/tasks/priority/{priority}(priority=${task.priority})}"
+						 class = "btn btn-primary">kill priority</a>
+					</td>
+				</tr>
+			</tbody>
+		
+		</table>
+		
+	</div>
+</body>
+</html>
