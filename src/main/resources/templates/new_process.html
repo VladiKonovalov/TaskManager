@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		  crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Tasks Manager System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/tasks}">All Processes</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create New process </h1>
+				<div class = "card-body">
+					<form th:action="@{/tasks/approach/{approach}}" th:object = "${task}" method="POST">
+						<div class ="form-group">
+							<label> Process Name </label>
+							<input
+							type = "text"
+							name = "name"
+							th:field = "*{name}"
+							class = "form-control"
+							placeholder="Enter Process Name"
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Put process Priority </label>
+							<select name="priority" id="priority">
+								<option value="high">high</option>
+								<option value="medium">medium</option>
+								<option value="low">low</option>
+							</select>
+						</div>
+						<div class ="form-group">
+							<label> Put process Priority </label>
+							<select name="approach" id="approach" >
+								<option value="naive">naive approach</option>
+								<option value="fifo">fifo approach</option>
+								<option value="priority">priority approach</option>
+							</select>
+						</div>
+
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
