@@ -1,6 +1,8 @@
-package org.example;
+package org.example.controllers;
 
 import enums.Priority;
+import org.example.TaskManager;
+import org.example.TaskManagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

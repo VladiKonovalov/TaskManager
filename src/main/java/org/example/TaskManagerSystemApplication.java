@@ -19,12 +19,12 @@ public class TaskManagerSystemApplication implements CommandLineRunner {
         TaskManager process = new TaskManager( "first", Priority.low);
 		  taskManagerRepository.save(process);
 
-        TaskManager process2 = new TaskManager("second",  Priority.medium);
-        taskManagerRepository.save(process2);
-
-
-        TaskManager process3 = new TaskManager("third",  Priority.high);
-        taskManagerRepository.save(process3);
+//        TaskManager process2 = new TaskManager("second",  Priority.medium);
+//        taskManagerRepository.save(process2);
+//
+//
+//        TaskManager process3 = new TaskManager("third",  Priority.high);
+//        taskManagerRepository.save(process3);
 
     }
 }
