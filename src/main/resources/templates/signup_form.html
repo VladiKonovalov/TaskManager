@@ -2,55 +2,105 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Sign Up - CodeJava</title>
-	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<title>Student Management System</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		  crossorigin="anonymous">
 </head>
 <body>
-	<div class="container text-center">
-		<div>
-			<h1>User Registration - Sign Up</h1>
-		</div>
-		<form th:action="@{/process_register}" th:object="${user}"
-			method="post" style="max-width: 600px; margin: 0 auto;">
-		<div class="m-3">
-			<div class="form-group row">
-				<label class="col-4 col-form-label">E-mail: </label>
-				<div class="col-8">
-					<input type="email" th:field="*{email}" name="email" class="form-control" required />
-				</div>
-			</div>
-			
-			<div class="form-group row">
-				<label class="col-4 col-form-label">Password: </label>
-				<div class="col-8">
-					<input type="password" th:field="*{password}" class="form-control"
-							required minlength="6" maxlength="10"/>
-				</div>
-			</div>
-			
-			<div class="form-group row">
-				<label class="col-4 col-form-label">First Name: </label>
-				<div class="col-8">
-					<input type="text" th:field="*{firstName}" class="form-control" 
-							required minlength="2" maxlength="20"/>
-				</div>
-			</div>
-			
-			<div class="form-group row">
-				<label class="col-4 col-form-label">Last Name: </label>
-				<div class="col-8">
-					<input type="text" th:field="*{lastName}" class="form-control" 
-							required minlength="2" maxlength="20" />
-				</div>
-			</div>
-			
-			<div>
-				<button type="submit" class="btn btn-primary">Sign Up</button> 
-			</div>
-		</div>
-		</form>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<!-- Brand -->
+	<a class="navbar-brand" href="#">Tasks Manager System</a>
+
+	<!-- Toggler/collapsibe Button -->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<!-- Navbar links -->
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/tasks}">All Processes</a>
+			</li>
+		</ul>
 	</div>
+</nav>
+<br>
+<br>
+<div class = "container">
+	<div class = "row">
+		<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<h1 class = "text-center"> Sign up page  </h1>
+			<div class = "card-body">
+				<!-- Section: Design Block -->
+				<section class="text-center">
+					<!-- Background image -->
+					<div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 300px;
+        "></div>
+					<!-- Background image -->
+
+					<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+						<div class="card-body py-5 px-md-5">
+
+							<div class="row d-flex justify-content-center">
+								<div class="col-lg-8">
+									<h2 class="fw-bold mb-5">Sign up now</h2>
+									<form>
+										<!-- 2 column grid layout with text inputs for the first and last names -->
+										<div class="row">
+											<div class="col-md-6 mb-4">
+												<div class="form-outline">
+													<input type="text" id="form3Example1" class="form-control" />
+													<label class="form-label" for="form3Example1">First name</label>
+												</div>
+											</div>
+											<div class="col-md-6 mb-4">
+												<div class="form-outline">
+													<input type="text" id="form3Example2" class="form-control" />
+													<label class="form-label" for="form3Example2">Last name</label>
+												</div>
+											</div>
+										</div>
+
+										<!-- Email input -->
+										<div class="form-outline mb-4">
+											<input type="email" id="form3Example3" class="form-control" />
+											<label class="form-label" for="form3Example3">Email address</label>
+										</div>
+
+										<!-- Password input -->
+										<div class="form-outline mb-4">
+											<input type="password" id="form3Example4" class="form-control" />
+											<label class="form-label" for="form3Example4">Password</label>
+										</div>
+
+										<!-- Checkbox -->
+
+										<!-- Submit button -->
+										<button type="submit" class="btn btn-primary btn-block mb-4">
+											Sign up
+										</button>
+
+										<!-- Register buttons -->
+
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Section: Design Block -->
+
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
