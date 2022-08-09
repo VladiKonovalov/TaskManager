@@ -18,4 +18,10 @@ public class loginController {
         return "signup_form";
 
     }
+
+    @GetMapping("/forgot_password")
+    public String forgotPasswordForm(Model model) {
+        return "forgot_password";
+
+    }
 }
