@@ -1,6 +1,7 @@
-package org.example;
+package org.example.Repository;
 
 import enums.Priority;
+import org.example.TaskManager;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

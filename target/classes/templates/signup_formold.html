@@ -42,11 +42,12 @@
         "></div>
 					<!-- Background image -->
 
-					<div class="card mx-4 mx-md-5 shadow-5-strong" style=" margin-top: -100px;
+					<div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
         background: hsla(0, 0%, 100%, 0.8);
-        backdrop-filter: blur(30px);">
+        backdrop-filter: blur(30px);
+        ">
 						<div class="card-body py-5 px-md-5">
-							<form th:action="@{/users/register}" th:object = "${user}" method="POST">
 
 							<div class="row d-flex justify-content-center">
 								<div class="col-lg-8">
@@ -56,13 +57,13 @@
 										<div class="row">
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
-													<input type="text" 	th:field = "*{firstname}"  id="firstname" class="form-control" />
+													<input type="text" id="firstname" class="form-control" />
 													<label class="form-label" for="firstname">First name</label>
 												</div>
 											</div>
 											<div class="col-md-6 mb-4">
 												<div class="form-outline">
-													<input type="text" id="lastname" 	th:field = "*{lastname}" class="form-control" />
+													<input type="text" id="lastname" class="form-control" />
 													<label class="form-label" for="lastname">Last name</label>
 												</div>
 											</div>
@@ -70,13 +71,13 @@
 
 										<!-- Email input -->
 										<div class="form-outline mb-4">
-											<input type="email" id="email" 	th:field = "*{email}"  class="form-control" />
+											<input type="email" id="email" class="form-control" />
 											<label class="form-label" for="email">Email address</label>
 										</div>
 
 										<!-- Password input -->
 										<div class="form-outline mb-4">
-											<input type="password" id="password" name="password"	th:field = "*{password}" class="form-control" minlength="5" required/>
+											<input type="password" id="password" class="form-control" />
 											<label class="form-label" for="password">Password</label>
 										</div>
 
@@ -94,7 +95,6 @@
 									</form>
 								</div>
 							</div>
-							</form>
 						</div>
 					</div>
 				</section>

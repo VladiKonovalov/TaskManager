@@ -1,15 +1,11 @@
-package org.example.controllers;
+package org.example.Controllers;
 
 import enums.Priority;
 import org.example.TaskManager;
-import org.example.TaskManagerService;
+import org.example.Services.TaskManagerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class TaskManagerController {
