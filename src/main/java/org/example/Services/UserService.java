@@ -1,26 +1,37 @@
 package org.example.Services;
 
-import enums.Priority;
 import org.example.Repository.UserRepository;
-import org.example.TaskManager;
-import org.example.Repository.TaskManagerRepository;
 import org.example.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 @Service
 public class UserService {
-    @Autowired
-    private static UserRepository myUser;
 
+    private UserRepository userRepository;
+   // private  PasswordEncoder passwordEncoder;
 
-    public static void newUser(User user) {
+  @Autowired
 
-        myUser.save(user);
+    public UserService(UserRepository userRepository
+                       //, PasswordEncoder passwordEncoder
+  ) {
+        this.userRepository = userRepository;
+    //    this.passwordEncoder = passwordEncoder;
     }
+//    @Autowired
+//    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+//        this.passwordEncoder = passwordEncoder;
+//    }
 
+    public void newUser(User user) {
+        userRepository.save(user);
+    }
+    public  boolean userExists(String email,String password) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+         //   return passwordEncoder.matches(password, user.getPassword());
+        }
+        return false;
+    }
 }

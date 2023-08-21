@@ -1,5 +1,6 @@
 <component name="libraryTable">
-  <library name="Maven: org.hibernate.validator:hibernate-validator:6.2.3.Final">
+  <library name="Maven: org.hibernate.validator:hibernate-validator:6.2.3.Final" type="java-imported" external-system-id="Maven">
+    <properties groupId="org.hibernate.validator" artifactId="hibernate-validator" version="6.2.3.Final" />
     <CLASSES>
       <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/validator/hibernate-validator/6.2.3.Final/hibernate-validator-6.2.3.Final.jar!/" />
     </CLASSES>
