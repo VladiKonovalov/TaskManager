@@ -3,6 +3,9 @@ import enums.Priority;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -12,19 +15,20 @@ import java.util.Date;
 
 public class User {
 
-
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id",nullable = false)
     private Long id;
-    @Column(name = "firstname")
+    @NotBlank
     private String firstname;
-    @Column(name = "lastname")
+    @NotBlank
 
     private String lastname;
-    @Column(name = "email")
+    @Email
+    @NotBlank
     private String email;
-    @Column(name = "password")
+
+    @Size(min = 6, max = 20)
     private String password;
 
     @Basic(optional = false)
