@@ -30,6 +30,7 @@ public class UserService {
     public  boolean userExists(String email,String password) {
         User user = userRepository.findByEmail(email);
         if (user != null) {
+return  user.getPassword().equals(password);
          //   return passwordEncoder.matches(password, user.getPassword());
         }
         return false;
