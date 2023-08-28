@@ -28,6 +28,24 @@ public class User {
     @NotBlank
     private String email;
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    @NotBlank
+    private String role;
     @Size(min = 6, max = 20)
     private String password;
 
@@ -45,14 +63,14 @@ public String GetTime(){
     return  dtf.format(now);                  // 2021/03/22 16:37:15
 
 }
-    public User( String firstname,String lastname,String email, String password) {
+    public User( String firstname,String lastname,String email, String password,String role) {
         super();
         this.createdDate= new Date();
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
-
+        this.role=role;
     }
     public void setId(Long id) {
         this.id=id;

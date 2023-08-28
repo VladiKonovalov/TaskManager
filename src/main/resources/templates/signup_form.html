@@ -70,7 +70,7 @@
 
 										<!-- Email input -->
 										<div class="form-outline mb-4">
-											<input type="email" id="email" 	th:field = "*{email}"  class="form-control" />
+											<input type="email" id="email" 	th:field = "*{email}"  class="form-control" required/>
 											<label class="form-label" for="email">Email address</label>
 										</div>
 
@@ -81,6 +81,21 @@
 										</div>
 
 										<!-- Checkbox -->
+										<fieldset>
+											<legend>Please select your role:</legend>
+											<div>
+												<input
+														type="radio"
+														id="contactChoice1"
+														name="role"
+														value="user"
+														checked />
+												<label for="contactChoice1">User</label>
+
+												<input type="radio" id="contactChoice2" name="role" value="admin" />
+												<label for="contactChoice2">Admin</label>
+											</div>
+										</fieldset>
 
 										<!-- Submit button -->
 										<button type="submit" class="btn btn-primary btn-block mb-4">
