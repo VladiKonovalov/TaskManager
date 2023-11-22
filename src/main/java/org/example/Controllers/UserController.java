@@ -1,5 +1,6 @@
 package org.example.Controllers;
 
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.example.Repository.UserRepository;
 import org.example.Services.UserService;
 import org.example.User;
@@ -15,54 +16,60 @@ import javax.validation.Valid;
 public class UserController {
     private UserService userService;
     private UserRepository userRepository;
+
     //private PasswordEncoder passwordEncoder;
-   // @Autowired
+    // @Autowired
     public UserController(UserService userService, UserRepository userRepository
-            //, PasswordEncoder passwordEncoder
-                          ) {
+                          //, PasswordEncoder passwordEncoder
+    ) {
         this.userService = userService;
         this.userRepository = userRepository;
-   //     this.passwordEncoder = passwordEncoder;
+        //     this.passwordEncoder = passwordEncoder;
     }
 
 
-    @RequestMapping("/")
-    public String index(){
+//    @RequestMapping("/")
+//    public String index() {
+//        return "login";
+//    }
+@GetMapping("/login")
+public String loginPage() {
+    return "login";
+}
+    @RequestMapping("/logout")
+    public String logout() {
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("username") String email, @RequestParam("password") String password,Model model) {
-        // Check if user exists in database
-        if (userService.userExists(email, password)) {
+    public String login(@RequestParam("username") String email, @RequestParam("password") String password, Model model) {
             return "redirect:/tasks";
-        }else {
-            // If user does not exist, show an error message or redirect back to the login page
-            model.addAttribute("error", "Invalid email or password");
-
-            return "login";
-        }
     }
+
     @GetMapping("/signup_form")
     public String SignUpForm(Model model) {
-        User newUser=new User();
-        model.addAttribute("user",newUser);
+        User newUser = new User();
+        model.addAttribute("user", newUser);
         return "signup_form";
 
     }
+
     @PostMapping(path = "/users/register")
-    public String saveNewUser(@Valid  @ModelAttribute("user") User user, BindingResult bindingResult) {
+    public String saveNewUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "signup_form";
         }
         this.userService.newUser(user);
         return "redirect:/";
     }
+
     @GetMapping("/forgot_password")
     public String forgotPasswordForm(Model model) {
         return "forgot_password";
 
-    } @Autowired
+    }
+
+    @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
@@ -71,10 +78,10 @@ public class UserController {
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
+}
 //    @Autowired
 //    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
 //        this.passwordEncoder = passwordEncoder;
 //    }
 
-}
+//}
