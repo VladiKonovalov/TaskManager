@@ -47,7 +47,7 @@ return  user.getPassword().equals(password);
         // and return a UserDetails object
 
         // Example:
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByEmail(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }

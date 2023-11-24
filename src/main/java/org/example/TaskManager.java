@@ -1,36 +1,45 @@
 package org.example;
 import enums.Priority;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-@Entity
-@Table(name = "tasks")
+//@Entity
+//@Table(name = "tasks")
+@Document (collection = "tasks")
 public class TaskManager {
 
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id",nullable = false)
-    private Long id;
-    @Column(name = "priority")
+//    @GeneratedValue(strategy= GenerationType.IDENTITY)
+//    @Column(name = "id",nullable = false)
+    private String id;
+//    @Column(name = "priority")
  private Priority priority;
 
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
 
-@Basic(optional = false)
-@CreationTimestamp
-@Column(name = "date")
-@Temporal(TemporalType.TIMESTAMP)
-private Date date = new Date(); // initialize created date    @CreatedDate
+//@Basic(optional = false)
+//@CreationTimestamp
+//@Column(name = "date")
+@CreatedDate
+@Field("date")
+private Date date;
+
+//    @Temporal(TemporalType.TIMESTAMP)
+//private Date date = new Date(); // initialize created date    @CreatedDate
 //    @Column(name = "date")
 //    @Temporal(TemporalType.TIMESTAMP)
 //    private String date;
     public TaskManager() {
+        this.date = new Date();
 
     }
 
@@ -41,8 +50,7 @@ public String GetTime(){
 
 }
     public TaskManager(String name,Priority priority) {
-        super();
-        this.date= new Date();
+this();
         this.name = name;
         this.priority = priority;
     }
@@ -54,7 +62,7 @@ public String GetTime(){
         this.name= name;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
     public Priority getPriority() {
@@ -66,15 +74,10 @@ public String GetTime(){
     public void setPriority(Priority priority) {
         this.priority=priority;
     }
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id=id;
     }
     public void setDate() {
         this.date=new Date(); ;
     }
-
-//    public void setPriority(String priority) {
-//        this.priority = priority;
-//    }
-
 }
