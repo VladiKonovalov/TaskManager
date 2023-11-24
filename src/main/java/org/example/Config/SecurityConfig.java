@@ -44,7 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/tasks").authenticated()
                 .antMatchers( "/signup_form", "/users/register").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -55,21 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutSuccessUrl("/login")
                 .permitAll();
-        // Allow frames for H2 console
-        http
-                .headers()
-                .frameOptions().sameOrigin();
 
-        // Disable CSRF for the H2 console
-        http
-                .csrf().disable();
-    }
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        // Allow H2 console to be accessed without authentication
-        web
-                .ignoring()
-                .antMatchers("/h2-console/**");
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

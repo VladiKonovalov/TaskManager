@@ -69,7 +69,7 @@ public class TaskManagerController {
     @GetMapping("/tasks/priority/{priority}")
 //    public void killGroupProcess(@PathVariable (value="priority" ) Priority priority) {
     public String killGroupProcess(@PathVariable(value = "priority") Priority priority) {
-        taskManagerService.killGroup(priority);
+//        taskManagerService.killGroup(priority);
         return "redirect:/tasks";
         //    taskManagerService.killGroup(priority);
         //   return "redirect:/tasks";

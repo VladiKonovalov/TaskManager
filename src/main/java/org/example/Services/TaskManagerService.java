@@ -48,10 +48,10 @@ public class TaskManagerService {
               }
           }
           if (lowlist.size() > 0) {
-              repo.deleteById(lowlist.stream().findFirst().get().getId());
+//              repo.deleteById(lowlist.stream().findFirst().get().getId());
               return true;
           } else if (meduimlist.size() > 0) {
-              repo.deleteById(meduimlist.stream().findFirst().get().getId());
+//              repo.deleteById(meduimlist.stream().findFirst().get().getId());
               return true;
           }
 
@@ -60,19 +60,18 @@ public class TaskManagerService {
 
   }
   public void  killTheOldestProcess(){
-      List<TaskManager>  list=repo.findAll();
-      repo.deleteById(list.stream().findFirst().get().getId());
-  }
-    public void killGroup(Priority priority) {
-        List<TaskManager>  list=repo.findAll();
-        Iterator itr = list.iterator();
-        while(itr.hasNext()) {
-            TaskManager element= (TaskManager) itr.next();
-if (element.getPriority().equals(priority))
-    repo.deleteById(element.getId());
-        }
+//      List<TaskManager>  list=repo.findAll();
+//      repo.deleteById(list.stream().findFirst().get().getId());
+//  }
+//    public void killGroup(Priority priority) {
+//        List<TaskManager>  list=repo.findAll();
+//        Iterator itr = list.iterator();
+//        while(itr.hasNext()) {
+//            TaskManager element= (TaskManager) itr.next();
+//if (element.getPriority().equals(priority))
+//    repo.deleteById(element.getId());
+//        }
 
-      //      int numberOfRowsAffected=jdbcTemplate.update(sql,priority);
     }
 ////
 
