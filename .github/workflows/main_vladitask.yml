@@ -12,7 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
     steps:
       - uses: actions/checkout@v4
 
@@ -46,6 +47,9 @@ jobs:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
+        env:
+          MONGODB_URI: ${{ env.MONGODB_URI }}
+
         with:
           app-name: 'VladiTask'
           slot-name: 'Production'
